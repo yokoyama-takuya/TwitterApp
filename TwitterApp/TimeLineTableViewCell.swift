@@ -14,4 +14,10 @@ class TimeLineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tweetLabel: UILabel!
 
+    
+    func displayUpdate(timeLine:TwitterTimeLine){
+        
+        iconImageView.sd_setImageWithURL(NSURL(string: timeLine.userIcon))
+        tweetLabel.text = timeLine.text
+    }
 }
