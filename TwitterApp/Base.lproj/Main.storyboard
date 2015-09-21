@@ -1,32 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pq6-mh-Ldh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pq6-mh-Ldh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--タイムライン一覧-->
         <scene sceneID="eHX-BY-3cm">
             <objects>
                 <tableViewController id="tba-sS-WBA" customClass="TimeLineTableViewController" customModule="TwitterApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aBl-Ri-ztS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="aBl-Ri-ztS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Irj-Ht-OQH" style="IBUITableViewCellStyleDefault" id="KKG-WU-VbS">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="KKG-WU-VbS" customClass="TimeLineTableViewCell" customModule="TwitterApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KKG-WU-VbS" id="WTF-v4-7W1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Irj-Ht-OQH">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3p-0V-ZQW">
+                                            <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="Gax-8r-hS1"/>
+                                                <constraint firstAttribute="width" constant="80" id="eJF-tl-gcv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofx-yl-PGn">
+                                            <rect key="frame" x="100" y="10" width="210" height="41"/>
+                                            <string key="text">ツイート文
+ツイート文</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="H3p-0V-ZQW" firstAttribute="leading" secondItem="WTF-v4-7W1" secondAttribute="leading" constant="10" id="9Gl-ff-eif"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ofx-yl-PGn" secondAttribute="trailing" constant="10" id="C9d-PZ-AYe"/>
+                                        <constraint firstItem="Ofx-yl-PGn" firstAttribute="top" secondItem="WTF-v4-7W1" secondAttribute="top" constant="10" id="Fyh-2Y-sac"/>
+                                        <constraint firstItem="H3p-0V-ZQW" firstAttribute="top" secondItem="WTF-v4-7W1" secondAttribute="top" constant="10" id="Hhy-Wa-Lbs"/>
+                                        <constraint firstItem="Ofx-yl-PGn" firstAttribute="leading" secondItem="H3p-0V-ZQW" secondAttribute="trailing" constant="10" id="amY-4z-IOd"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ofx-yl-PGn" secondAttribute="bottom" constant="10" id="hJ9-sJ-dwF"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="hJ9-sJ-dwF"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="iconImageView" destination="H3p-0V-ZQW" id="aTe-Vh-47p"/>
+                                    <outlet property="tweetLabel" destination="Ofx-yl-PGn" id="w4X-SP-eGl"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="z6J-J8-MXm"/>
                                 </connections>
                             </tableViewCell>
@@ -37,16 +64,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="タイムライン一覧" id="inp-9D-w0U">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="zkX-UV-LPj"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vDN-q3-bTv">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="Vor-dF-gJe"/>
+                                <action selector="tapTweetBtn:" destination="tba-sS-WBA" id="7Q0-qh-rAr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByH-3v-bmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-75" y="307"/>
+            <point key="canvasLocation" x="-85" y="307"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s2H-gY-rYf">
@@ -65,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="-462" y="307"/>
         </scene>
-        <!--View Controller-->
+        <!--ツイート詳細画面-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TwitterApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +106,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45404888389999998" green="0.97334511629999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="v1V-kg-Ao4"/>
+                    <navigationItem key="navigationItem" title="ツイート詳細画面" id="v1V-kg-Ao4">
+                        <barButtonItem key="backBarButtonItem" title="バック" id="aht-Q5-vP5"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,7 +116,4 @@
             <point key="canvasLocation" x="318" y="307"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="z6J-J8-MXm"/>
-    </inferredMetricsTieBreakers>
 </document>

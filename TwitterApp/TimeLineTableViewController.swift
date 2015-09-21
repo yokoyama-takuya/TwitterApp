@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import Social
+import Accounts
 
 class TimeLineTableViewController: UITableViewController {
     
-    let dataArray:[[String:String]] = [
+    var twitterAccount:ACAccount?
+    
+    var dataArray:[[String:String]] = [
         
         [
             "title":"タイトル1",
-            "image":"https://scontent.xx.fbcdn.net/hphotos-xal1/t31.0-8/c0.55.851.315/p851x315/10515212_315737341956430_4261430778935915055_o.jpg"
+            "image":"http://ux-mobile.net/data/public/spartacamp/201509/twitter_icon.png"
         ],
         
         [
             "title":"タイトル2",
-            "image":"https://scontent.xx.fbcdn.net/hphotos-xal1/t31.0-8/c0.55.851.315/p851x315/10515212_315737341956430_4261430778935915055_o.jpg"
+            "image":"http://ux-mobile.net/data/public/spartacamp/201509/twitter_icon.png"
         ]
-        
     ]
     
     //テーブルの件数を登録
@@ -33,23 +36,24 @@ class TimeLineTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         //セルを内部的にリサイクルしているのでこちらが必須になります。
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TimeLineTableViewCell
         
         
-        println("表示したいIndex : \(indexPath.row)")
+        print("表示したいIndex : \(indexPath.row)")
         
         if let title = dataArray[indexPath.row]["title"]{
-            cell.textLabel?.text = title
+            cell.tweetLabel.text = title
         }
         
         if let urlString = dataArray[indexPath.row]["image"]{
-            
-            cell.imageView?.sd_setImageWithURL(NSURL(string: urlString)
-                , placeholderImage: UIImage(named: "placeholder"))
-            
+            cell.iconImageView?.sd_setImageWithURL(NSURL(string: urlString))
+        
         }
         
         return cell
     }
+    
+
+    
 
 }
