@@ -18,12 +18,12 @@ class TwitterTimeLineFetcher{
     
     static func requestHomeTimeLine(parameters:[String:AnyObject] = [:], callback:([TwitterTimeLine]) -> Void){
 
-        self.request(.HomeTimeLine, parameters:parameters, callback:callback)
+        request(.HomeTimeLine, parameters:parameters, callback:callback)
     }
     
     static func requestUserTimeLine(parameters:[String:AnyObject] = [:], callback:([TwitterTimeLine]) -> Void){
         
-        self.request(.UserTimeLine, parameters:parameters, callback:callback)
+        request(.UserTimeLine, parameters:parameters, callback:callback)
         
     }
     

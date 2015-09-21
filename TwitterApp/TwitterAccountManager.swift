@@ -42,11 +42,11 @@ class TwitterAccountManager{
         parameters:[String:AnyObject] = [:], callback:(Result<AnyObject>)->Void){
             
             //未ログインの場合は先にログイン処理を行う
-            if self.instance.account == nil{
+            if instance.account == nil{
                 
-                self.loginTwitter({ () -> () in
-                    if self.instance.account != nil{
-                        self.requestTwitterAPI(endPoint, method: method, parameters: parameters, callback: callback)
+                loginTwitter({ () -> () in
+                    if instance.account != nil{
+                        requestTwitterAPI(endPoint, method: method, parameters: parameters, callback: callback)
                     }
                 })
                 return
@@ -57,7 +57,7 @@ class TwitterAccountManager{
             //print("Param >> \(parameters)")
             let url = NSURL(string: "\(BaseURL)\(endPoint)")
             let preRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: method, URL: url, parameters:parameters)
-            preRequest.account = self.instance.account
+            preRequest.account = instance.account
             
             Alamofire.request(preRequest.preparedURLRequest()).responseJSON { _, response, result in
                 
@@ -100,7 +100,7 @@ class TwitterAccountManager{
                 //print("自分のアカウント名：「\(account.username)」\n")
                 
                 //アカウントをメモリに保持
-                self.instance.account = account
+                instance.account = account
                 
                 callback()
                 
