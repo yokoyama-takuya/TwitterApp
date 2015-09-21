@@ -28,7 +28,7 @@
                                                 <constraint firstAttribute="width" constant="45" id="eJF-tl-gcv"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofx-yl-PGn">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofx-yl-PGn" customClass="TTTAttributedLabel">
                                             <rect key="frame" x="65" y="26" width="245" height="53"/>
                                             <string key="text">1ツイート文
 2ツイート文
@@ -122,17 +122,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpB-Cl-zdo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="380"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOj-5Z-1QP">
-                                                <rect key="frame" x="10" y="170" width="300" height="200"/>
+                                                <rect key="frame" x="10" y="171" width="300" height="200"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="ros-Pv-d7E"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yx-Go-J6y">
-                                                <rect key="frame" x="10" y="100" width="300" height="60"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yx-Go-J6y" customClass="TTTAttributedLabel">
+                                                <rect key="frame" x="10" y="100" width="300" height="61"/>
                                                 <string key="text">ツイート文
 ツイート文</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -153,7 +153,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPg-uL-eLV">
-                                                <rect key="frame" x="100" y="40.5" width="170" height="29"/>
+                                                <rect key="frame" x="100" y="40" width="170" height="29"/>
                                                 <string key="text">リツイート 3
 ファボ 3</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>

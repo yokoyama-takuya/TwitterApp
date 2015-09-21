@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import TTTAttributedLabel
 
-class TimeLineDetailViewController: UIViewController {
+class TimeLineDetailViewController: UIViewController ,TTTAttributedLabelDelegate{
 
     var tweet:TwitterTimeLine?
     
@@ -21,7 +22,7 @@ class TimeLineDetailViewController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     
     @IBOutlet weak var tweetCountLabel: UILabel!
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetLabel: TTTAttributedLabel!
     
     
     override func viewDidLoad() {
@@ -40,6 +41,9 @@ class TimeLineDetailViewController: UIViewController {
             
             userLabel.text = tweet.userName
             tweetCountLabel.text = "リツイート : \(tweet.retweetCount)\nファボ : \(tweet.favoriteCount)"
+            
+            tweetLabel.delegate = self
+            tweetLabel.enabledTextCheckingTypes =  NSTextCheckingType.Link.rawValue
             tweetLabel.text = tweet.text
             
             if tweet.favorited{
@@ -52,5 +56,9 @@ class TimeLineDetailViewController: UIViewController {
         
     }
 
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        
+        UIApplication.sharedApplication().openURL(url)
+    }
 
 }
