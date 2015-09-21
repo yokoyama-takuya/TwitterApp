@@ -67,7 +67,7 @@
                         <barButtonItem key="backBarButtonItem" title="戻る" id="zkX-UV-LPj"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vDN-q3-bTv">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="IwF-Qi-fcf"/>
+                                <action selector="tapTweetButton:" destination="tba-sS-WBA" id="ZSU-Bi-HBD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -116,7 +116,4 @@
             <point key="canvasLocation" x="318" y="307"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="z6J-J8-MXm"/>
-    </inferredMetricsTieBreakers>
 </document>
