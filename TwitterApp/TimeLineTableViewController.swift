@@ -14,12 +14,13 @@ class TimeLineTableViewController: UITableViewController {
     
     //
     override func viewDidLoad() {
-        ExUtil.dispatchAsyncMain(1.0) { () -> () in
-            TwitterTimeLineFetcher.requestHomeTimeLine(callback: { (array) -> Void in
-                self.dataArray += array
-                self.tableView.reloadData()
-            })
-        }
+        super.viewDidLoad()
+        
+        TwitterTimeLineFetcher.requestHomeTimeLine(callback: { (array) -> Void in
+            self.dataArray += array
+            self.tableView.reloadData()
+        })
+        
     }
     
     //テーブルの件数を登録
