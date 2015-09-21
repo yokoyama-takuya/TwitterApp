@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TimeLineDetailViewController: UIViewController {
 
@@ -28,7 +29,14 @@ class TimeLineDetailViewController: UIViewController {
         
         if let tweet = tweet{
             iconImageView.sd_setImageWithURL(NSURL(string: tweet.userIcon))
-            detailImageView.sd_setImageWithURL(NSURL(string: tweet.imageURL))
+            
+            if tweet.imageURL == ""{
+                detailImageView.snp_remakeConstraints(closure: { (make) -> Void in
+                    make.height.equalTo(0)
+                })
+            }else{
+                detailImageView.sd_setImageWithURL(NSURL(string: tweet.imageURL))
+            }
             
             userLabel.text = tweet.userName
             tweetCountLabel.text = "リツイート : \(tweet.retweetCount)\nファボ : \(tweet.favoriteCount)"
