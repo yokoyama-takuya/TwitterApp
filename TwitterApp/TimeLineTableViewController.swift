@@ -38,6 +38,16 @@ class TimeLineTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TimeLineDetailVC") as? TimeLineDetailViewController{
+            
+            vc.tweet = self.dataArray[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
 
     //投稿ボタンイベント
     @IBAction func tapTweetButton(sender: UIBarButtonItem) {

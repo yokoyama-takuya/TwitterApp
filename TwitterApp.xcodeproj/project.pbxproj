@@ -13,8 +13,8 @@
 		234D37D01BB08CD700EFC41D /* ExUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D37CF1BB08CD700EFC41D /* ExUtil.swift */; settings = {ASSET_TAGS = (); }; };
 		234D37D21BB0924B00EFC41D /* TwitterTimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D37D11BB0924B00EFC41D /* TwitterTimeLine.swift */; settings = {ASSET_TAGS = (); }; };
 		234D37D41BB0927C00EFC41D /* TwitterTimeLineFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D37D31BB0927C00EFC41D /* TwitterTimeLineFetcher.swift */; settings = {ASSET_TAGS = (); }; };
+		237536621BB0B1AE0021F747 /* TimeLineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237536611BB0B1AE0021F747 /* TimeLineDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2380567A1BA4146400DA2331 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238056791BA4146400DA2331 /* AppDelegate.swift */; };
-		2380567C1BA4146400DA2331 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2380567B1BA4146400DA2331 /* ViewController.swift */; };
 		2380567F1BA4146400DA2331 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2380567D1BA4146400DA2331 /* Main.storyboard */; };
 		238056811BA4146400DA2331 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238056801BA4146400DA2331 /* Images.xcassets */; };
 		238056841BA4146400DA2331 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238056821BA4146400DA2331 /* LaunchScreen.xib */; };
@@ -42,10 +42,10 @@
 		234D37CF1BB08CD700EFC41D /* ExUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExUtil.swift; sourceTree = "<group>"; };
 		234D37D11BB0924B00EFC41D /* TwitterTimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTimeLine.swift; sourceTree = "<group>"; };
 		234D37D31BB0927C00EFC41D /* TwitterTimeLineFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTimeLineFetcher.swift; sourceTree = "<group>"; };
+		237536611BB0B1AE0021F747 /* TimeLineDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineDetailViewController.swift; sourceTree = "<group>"; };
 		238056741BA4146400DA2331 /* TwitterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238056781BA4146400DA2331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		238056791BA4146400DA2331 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2380567B1BA4146400DA2331 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2380567E1BA4146400DA2331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		238056801BA4146400DA2331 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		238056831BA4146400DA2331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				238056791BA4146400DA2331 /* AppDelegate.swift */,
 				23AE3D0C1BA55D85009CEEE6 /* TimeLineTableViewCell.swift */,
 				238056991BA4198F00DA2331 /* TimeLineTableViewController.swift */,
-				2380567B1BA4146400DA2331 /* ViewController.swift */,
+				237536611BB0B1AE0021F747 /* TimeLineDetailViewController.swift */,
 				2380567D1BA4146400DA2331 /* Main.storyboard */,
 				238056801BA4146400DA2331 /* Images.xcassets */,
 				238056821BA4146400DA2331 /* LaunchScreen.xib */,
@@ -336,8 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237536621BB0B1AE0021F747 /* TimeLineDetailViewController.swift in Sources */,
 				23AE3D0D1BA55D85009CEEE6 /* TimeLineTableViewCell.swift in Sources */,
-				2380567C1BA4146400DA2331 /* ViewController.swift in Sources */,
 				234D37D41BB0927C00EFC41D /* TwitterTimeLineFetcher.swift in Sources */,
 				234D37D21BB0924B00EFC41D /* TwitterTimeLine.swift in Sources */,
 				234D37D01BB08CD700EFC41D /* ExUtil.swift in Sources */,
