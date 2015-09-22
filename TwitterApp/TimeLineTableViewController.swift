@@ -11,16 +11,31 @@ import UIKit
 class TimeLineTableViewController: UITableViewController {
     
     var dataArray:[TwitterTimeLine] = []
+    var isLoading = false
     
-    //
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TwitterTimeLineFetcher.requestHomeTimeLine(callback: { (array) -> Void in
+        fetchTimeLine()
+    }
+    
+    func fetchTimeLine(){
+        if isLoading{
+            return
+        }
+        
+        isLoading = true
+        
+        var params:[String:String] = [:]
+        if dataArray.count != 0, let tweet = dataArray.last{
+            params = ["max_id":"\(tweet.tweetId - 1)"]
+        }
+        
+        TwitterTimeLineFetcher.requestHomeTimeLine(params, callback: { (array) -> Void in
             self.dataArray += array
             self.tableView.reloadData()
+            self.isLoading = false
         })
-        
     }
     
     //テーブルの件数を登録
@@ -46,6 +61,14 @@ class TimeLineTableViewController: UITableViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
+    }
+    
+    //追加読み込み
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if !isLoading && indexPath.row >= (dataArray.count - 10){
+            fetchTimeLine()
+        }
     }
     
 
