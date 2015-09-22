@@ -28,12 +28,10 @@ class TwitterFavoriteFetcher {
         TwitterAccountManager.requestTwitterAPI(endPoint.rawValue, method: .POST, parameters:param) { (result) -> Void in
             
             if result.isFailure{
-                print(result.error)
                 ExUtil.showAlert(msg: "通信エラーです。電波の良いところで再度お試しください。")
                 callback(success: false)
                 return
             }
-            print(result.value)
             
             callback(success: true)
             

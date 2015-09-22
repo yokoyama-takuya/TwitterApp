@@ -63,7 +63,6 @@ class TwitterAccountManager{
                 
                 if response?.statusCode == 429{
                     ExUtil.showAlert(msg: "APIリクエスト上限通信エラーです。しばらくしてから再度お試しください。")
-                    return
                 }
                 
                 callback(result)

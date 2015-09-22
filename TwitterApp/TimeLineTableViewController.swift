@@ -11,11 +11,32 @@ import UIKit
 class TimeLineTableViewController: UITableViewController {
     
     var dataArray:[TwitterTimeLine] = []
+    var refreshUI = UIRefreshControl()
     var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //引っ張って更新するためのイベント追加
+        refreshUI.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshUI)
+        
+        //初回読み込み
+        refreshUI.beginRefreshing()
+        fetchTimeLine()
+    }
+    
+    //表示更新
+    func refresh(){
+        //ロード中は無視する
+        if isLoading{
+            refreshUI.endRefreshing()
+            return
+        }
+        //先にデータを空にしておく
+        dataArray = []
+        tableView.reloadData()
         fetchTimeLine()
     }
     
@@ -34,6 +55,7 @@ class TimeLineTableViewController: UITableViewController {
         TwitterTimeLineFetcher.requestHomeTimeLine(params, callback: { (array) -> Void in
             self.dataArray += array
             self.tableView.reloadData()
+            self.refreshUI.endRefreshing()
             self.isLoading = false
         })
     }

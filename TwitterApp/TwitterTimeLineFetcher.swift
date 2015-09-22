@@ -33,7 +33,6 @@ class TwitterTimeLineFetcher{
         TwitterAccountManager.requestTwitterAPI(endPoint.rawValue, method: .GET, parameters: parameters) { (result) -> Void in
             
             if result.isFailure{
-                print(result.error)
                 ExUtil.showAlert(msg: "通信エラーです。電波の良いところで再度お試しください。")
                 return
             }
@@ -48,6 +47,9 @@ class TwitterTimeLineFetcher{
                 }
                 
                 callback(dataArray)
+                
+            }else{
+                callback([])
             }
             
         }
