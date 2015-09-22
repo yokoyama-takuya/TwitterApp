@@ -38,7 +38,7 @@ class TimeLineDetailViewController: UIViewController ,TTTAttributedLabelDelegate
             iconImageView.sd_setImageWithURL(NSURL(string: tweet.userIcon))
             
             if tweet.imageURL == ""{
-                detailImageView.snp_remakeConstraints(closure: { (make) -> Void in
+                detailImageView.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(0)
                 })
             }else{
