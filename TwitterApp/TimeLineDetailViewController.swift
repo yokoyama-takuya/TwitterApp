@@ -28,7 +28,13 @@ class TimeLineDetailViewController: UIViewController ,TTTAttributedLabelDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        displayUpdate()
+    }
+    
+    func displayUpdate(){
+        
         if let tweet = tweet{
+            
             iconImageView.sd_setImageWithURL(NSURL(string: tweet.userIcon))
             
             if tweet.imageURL == ""{
@@ -53,7 +59,6 @@ class TimeLineDetailViewController: UIViewController ,TTTAttributedLabelDelegate
             }
             
         }
-        
     }
 
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
@@ -61,4 +66,17 @@ class TimeLineDetailViewController: UIViewController ,TTTAttributedLabelDelegate
         UIApplication.sharedApplication().openURL(url)
     }
 
+    @IBAction func tapFavButton(sender: AnyObject) {
+        
+        if let tweet = tweet{
+            TwitterFavoriteFetcher.request(tweet) { (success) -> Void in
+                if success{
+                    self.tweet!.changeFavoriteState()
+                    self.displayUpdate()
+                }
+            }
+        }
+
+        
+    }
 }
