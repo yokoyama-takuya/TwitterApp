@@ -1,15 +1,24 @@
 PODS:
-  - Alamofire (1.3.1)
+  - Alamofire (2.0.2)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SnapKit (0.14.0)
+  - SwiftyJSON (2.3.0)
+  - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.3)
+  - Alamofire
   - SDWebImage
+  - SnapKit
+  - SwiftyJSON
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
-  Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SnapKit: f42352ef34953866da0de1e1009c2ff82588a95e
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.38.2
