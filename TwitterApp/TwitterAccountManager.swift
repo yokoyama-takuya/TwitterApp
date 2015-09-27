@@ -61,11 +61,25 @@ class TwitterAccountManager{
             
             Alamofire.request(preRequest.preparedURLRequest()).responseJSON { _, response, result in
                 
-                if response?.statusCode == 429{
-                    ExUtil.showAlert(msg: "APIリクエスト上限通信エラーです。しばらくしてから再度お試しください。")
+                if let statusCode = response?.statusCode{
+                    
+                    if statusCode == 429{
+                        ExUtil.showAlert(msg: "APIリクエスト上限通信エラーです。しばらくしてから再度お試しください。")
+                        callback(Result.Failure(nil, Error.errorWithCode(statusCode, failureReason: "APIリクエスト上限通信エラー")))
+                    }
+                    else if statusCode != 200{
+                        ExUtil.showAlert(msg: "リクエストエラーです。status -> \(statusCode)")
+                        callback(Result.Failure(nil, Error.errorWithCode(statusCode, failureReason: "リクエストエラー")))
+                        
+                    }else{
+                        
+                        if result.isFailure{
+                            ExUtil.showAlert(msg: "通信エラーです。電波の良いところで再度お試しください。")
+                        }
+                        
+                        callback(result)
+                    }
                 }
-                
-                callback(result)
             }
             
     }

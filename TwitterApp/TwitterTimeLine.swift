@@ -19,7 +19,7 @@ class TwitterTimeLine{
     private(set) var imageURL = ""         //entities:0:media:media_url
     private(set) var retweetCount = 0      //retweet_count
     private(set) var favoriteCount = 0     //favorite_count
-    private(set) var tweetId = 0           //id
+    private(set) var tweetId = ""           //id_str
     //ログインユーザーの行動フラグ
     private(set) var retweeted = false     //retweetd
     private(set) var favorited = false     //favorited
@@ -41,7 +41,7 @@ class TwitterTimeLine{
         
         retweetCount = json["retweet_count"].intValue
         favoriteCount = json["favorite_count"].intValue
-        tweetId = json["id"].intValue
+        tweetId = json["id_str"].stringValue
         
         //ログインユーザーの行動フラグ
         retweeted = json["retweetd"].boolValue

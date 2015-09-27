@@ -48,8 +48,8 @@ class TimeLineTableViewController: UITableViewController {
         isLoading = true
         
         var params:[String:String] = [:]
-        if dataArray.count != 0, let tweet = dataArray.last{
-            params = ["max_id":"\(tweet.tweetId - 1)"]
+        if dataArray.count != 0, let tweet = dataArray.last, let maxId = Int64(tweet.tweetId){
+            params = ["max_id":"\(maxId - 1)"]
         }
         
         TwitterTimeLineFetcher.requestHomeTimeLine(params, callback: { (array) -> Void in

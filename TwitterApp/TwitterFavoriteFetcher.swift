@@ -17,7 +17,7 @@ class TwitterFavoriteFetcher {
     
     static func request(tweet:TwitterTimeLine, callback:(success:Bool) -> Void){
         
-        let param = ["id":"\(tweet.tweetId)"]
+        let param = ["id": tweet.tweetId]
         
         //現在のお気に入り状態でエンドポイントを変更
         var endPoint = TwitterAPIEndPoint.FavoritesCreate
@@ -28,7 +28,6 @@ class TwitterFavoriteFetcher {
         TwitterAccountManager.requestTwitterAPI(endPoint.rawValue, method: .POST, parameters:param) { (result) -> Void in
             
             if result.isFailure{
-                ExUtil.showAlert(msg: "通信エラーです。電波の良いところで再度お試しください。")
                 callback(success: false)
                 return
             }
